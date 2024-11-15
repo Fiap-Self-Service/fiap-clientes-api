@@ -1,6 +1,6 @@
-import { Injectable } from "@nestjs/common";
-import { IClienteRepository } from "../../external/repository/cliente-repository.interface";
-import { Cliente } from "../../entities/cliente";
+import { Injectable } from '@nestjs/common';
+import { IClienteRepository } from '../../external/repository/cliente-repository.interface';
+import { Cliente } from '../../entities/cliente';
 
 @Injectable()
 export class ClienteGateway {
