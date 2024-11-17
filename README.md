@@ -54,6 +54,9 @@ $ npm run test
 # e2e tests
 $ npm run test:e2e
 
+# tests de aceitação
+$ npm run test:cucumber
+
 # test coverage
 $ npm run test:cov
 ```
