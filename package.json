@@ -82,7 +82,7 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
-    "coverageReporters": ["text", "lcov", "json", "html"],
+    "coverageReporters": ["json", "json-summary", "html"],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
@@ -92,6 +92,14 @@
       "/src/infrastructure/health/",
       "/src/app.module.ts",
       "/src/main.ts"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }
