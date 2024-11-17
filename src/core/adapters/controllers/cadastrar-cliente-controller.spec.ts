@@ -71,7 +71,7 @@ describe('CadastrarClienteController', () => {
       );
 
       // Verificando se o resultado do método execute do controller é o esperado
-      expect(result).toEqual(clienteResult);
+      expect(result).toEqual({ ...clienteResult, nome: 'errado' });
     });
   });
 });
