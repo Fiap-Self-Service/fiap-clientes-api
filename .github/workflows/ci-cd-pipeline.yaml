@@ -25,7 +25,7 @@ jobs:
       run: npm install
 
     - name: Run Unit Tests
-      run: npm test:cov
+      run: npm run test:cov
 
     - name: Check unit test status
       run: echo "::set-output name=test_failed::$(grep -q 'Test Suites:.*failed' ./test-results.txt && echo true || echo false)"
