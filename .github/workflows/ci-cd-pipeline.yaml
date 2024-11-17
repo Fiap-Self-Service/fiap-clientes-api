@@ -30,9 +30,34 @@ jobs:
     - name: Check Jest Unit Test Coverage
       id: coverage
       run: |
-        # Recupera o percentual de cobertura do arquivo JSON gerado pelo Jest
-        COVERAGE=$(cat coverage/coverage-final.json | jq .total.lines.pct)
+        # Recupera o arquivo de cobertura JSON gerado pelo Jest
+        COVERAGE_FILE="coverage/coverage-final.json"
+        
+        # Inicializa variáveis para armazenar os totais de linhas e cobertas
+        total_lines=0
+        total_covered=0
+    
+        # Itera sobre cada arquivo no JSON de cobertura e soma as linhas e cobertas
+        for file in $(cat $COVERAGE_FILE | jq -r 'keys[]'); do
+          # Conta o total de linhas e as cobertas para cada arquivo
+          file_total_lines=$(cat $COVERAGE_FILE | jq ".\"$file\".s | values | add")
+          file_covered_lines=$(cat $COVERAGE_FILE | jq ".\"$file\".s | values | map(select(. > 0)) | length")
+          
+          # Acumula os totais de linhas e cobertas
+          total_lines=$((total_lines + file_total_lines))
+          total_covered=$((total_covered + file_covered_lines))
+        done
+    
+        # Calcula a cobertura em percentual
+        if [ $total_lines -eq 0 ]; then
+          COVERAGE=100
+        else
+          COVERAGE=$(echo "scale=2; ($total_covered / $total_lines) * 100" | bc)
+        fi
+    
         echo "Coverage: $COVERAGE%"
+    
+        # Verifica se a cobertura é menor que 80% e falha no pipeline caso seja
         if [ $(echo "$COVERAGE < 80" | bc) -eq 1 ]; then
           echo "Coverage deve ser maior ou igual a 80%"
           exit 1
