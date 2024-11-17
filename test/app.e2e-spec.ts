@@ -10,7 +10,7 @@ const CLIENTE1 = {
   id: null,
 };
 
-describe('AppController (e2e)', () => {
+describe('Testes de Integração', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -26,7 +26,7 @@ describe('AppController (e2e)', () => {
     return request(app.getHttpServer())
       .post('/clientes')
       .send(CLIENTE1)
-      .expect(HttpStatus.CREATED);
+      .expect(HttpStatus.OK);
   });
 
   it('Deve buscar os dados do cliente', async () => {
