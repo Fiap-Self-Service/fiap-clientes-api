@@ -34,8 +34,7 @@ jobs:
     
     - name: Check Codecov status
       run: |
-        curl -s https://codecov.io/api/gh/${{ github.repository }}/reports/latest | jq '.coverage'
-        if [ $(curl -s https://codecov.io/api/gh/${{ github.repository }}/reports/latest | jq '.coverage') -lt 80 ]; then
+        if [ $(curl -s https://codecov.io/gh/${{ github.repository }}/reports/latest/${{ github.head_ref || github.ref_name }} | jq '.coverage') -lt 80 ]; then
           echo "Coverage is below 80%. Failing the pipeline."
           exit 1
         fi
