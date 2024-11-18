@@ -10,7 +10,7 @@ const CLIENTE1 = {
   id: null,
 };
 
-describe('AppController (e2e)', () => {
+describe('Testes de Integração', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
