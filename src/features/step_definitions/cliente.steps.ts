@@ -43,7 +43,7 @@ Given('que cliente fornece um nome, email e CPF válidos', async () => {
 });
 
 Given('que cliente fornece um CPF inválido', async () => {
-  clienteDTO = { ...CLIENTE1, cpf: '000' };
+  clienteDTO = { ...CLIENTE1 };
 });
 
 Given('que cliente fornece um e-mail inválido', async () => {
