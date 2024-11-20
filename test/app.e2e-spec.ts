@@ -26,7 +26,7 @@ describe('Testes de Integração', () => {
     return request(app.getHttpServer())
       .post('/clientes')
       .send(CLIENTE1)
-      .expect(HttpStatus.CREATED);
+      .expect(HttpStatus.OK);
   });
 
   it('Deve buscar os dados do cliente', async () => {
