@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConsultarClientePorIDController } from './consultar-cliente-id-controller'; // Ajuste o caminho conforme necessário
-import { ConsultarClientePorIDUseCase } from '../../use-cases/consultar-cliente-id-use-case'; // Ajuste o caminho conforme necessário
-import { ClienteGateway } from '../gateways/cliente-gateway'; // Ajuste o caminho conforme necessário
-import { ClienteDTO } from '../../dto/clienteDTO'; // Ajuste o caminho conforme necessário
+import { ConsultarClientePorIDController } from './consultar-cliente-id-controller';
+import { ConsultarClientePorIDUseCase } from '../../use-cases/consultar-cliente-id-use-case';
+import { ClienteGateway } from '../gateways/cliente-gateway';
+import { ClienteDTO } from '../../dto/clienteDTO';
 import { randomUUID } from 'crypto';
 
 describe('ConsultarClientePorIDController', () => {

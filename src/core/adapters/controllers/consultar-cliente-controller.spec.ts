@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConsultarClientePorCPFController } from './consultar-cliente-controller'; // Ajuste o caminho conforme necessário
-import { ConsultarClientePorCPFUseCase } from '../../use-cases/consultar-cliente-cpf-use-case'; // Ajuste o caminho conforme necessário
-import { ClienteGateway } from '../gateways/cliente-gateway'; // Ajuste o caminho conforme necessário
-import { ClienteDTO } from '../../dto/clienteDTO'; // Ajuste o caminho conforme necessário
+import { ConsultarClientePorCPFController } from './consultar-cliente-controller';
+import { ConsultarClientePorCPFUseCase } from '../../use-cases/consultar-cliente-cpf-use-case';
+import { ClienteGateway } from '../gateways/cliente-gateway';
+import { ClienteDTO } from '../../dto/clienteDTO';
 
 describe('ConsultarClientePorCPFController', () => {
   let consultarClientePorCPFController: ConsultarClientePorCPFController;

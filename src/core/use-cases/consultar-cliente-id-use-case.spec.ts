@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConsultarClientePorIDUseCase } from './consultar-cliente-id-use-case'; // Ajuste o caminho conforme necessário
-import { ClienteGateway } from '../adapters/gateways/cliente-gateway'; // Ajuste o caminho conforme necessário
+import { ConsultarClientePorIDUseCase } from './consultar-cliente-id-use-case';
+import { ClienteGateway } from '../adapters/gateways/cliente-gateway';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { Cliente } from '../entities/cliente'; // Ajuste o caminho conforme necessário
+import { Cliente } from '../entities/cliente';
 import { randomUUID } from 'crypto';
 
 describe('ConsultarClientePorIDUseCase', () => {

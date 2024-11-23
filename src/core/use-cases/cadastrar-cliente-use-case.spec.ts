@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CadastrarClienteUseCase } from './cadastrar-cliente-use-case'; // Ajuste o caminho conforme necessário
-import { ClienteGateway } from '../adapters/gateways/cliente-gateway'; // Ajuste o caminho conforme necessário
+import { CadastrarClienteUseCase } from './cadastrar-cliente-use-case';
+import { ClienteGateway } from '../adapters/gateways/cliente-gateway';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { ClienteDTO } from '../dto/clienteDTO'; // Ajuste o caminho conforme necessário
-import { Cliente } from '../entities/cliente'; // Ajuste o caminho conforme necessário
+import { ClienteDTO } from '../dto/clienteDTO';
+import { Cliente } from '../entities/cliente';
 
 describe('CadastrarClienteUseCase', () => {
   let cadastrarClienteUseCase: CadastrarClienteUseCase;

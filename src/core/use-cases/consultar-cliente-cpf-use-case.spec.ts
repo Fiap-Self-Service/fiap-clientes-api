@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConsultarClientePorCPFUseCase } from './consultar-cliente-cpf-use-case'; // Ajuste o caminho conforme necessário
-import { ClienteGateway } from '../adapters/gateways/cliente-gateway'; // Ajuste o caminho conforme necessário
+import { ConsultarClientePorCPFUseCase } from './consultar-cliente-cpf-use-case';
+import { ClienteGateway } from '../adapters/gateways/cliente-gateway';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { Cliente } from '../entities/cliente'; // Ajuste o caminho conforme necessário
+import { Cliente } from '../entities/cliente';
 
 describe('ConsultarClientePorCPFUseCase', () => {
   let consultarClientePorCPFUseCase: ConsultarClientePorCPFUseCase;
