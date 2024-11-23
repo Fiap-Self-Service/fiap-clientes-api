@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CadastrarClienteController } from './cadastrar-cliente-controller'; // Ajuste o caminho conforme necessário
-import { CadastrarClienteUseCase } from '../../use-cases/cadastrar-cliente-use-case'; // Ajuste o caminho conforme necessário
-import { ClienteGateway } from '../gateways/cliente-gateway'; // Ajuste o caminho conforme necessário
-import { ClienteDTO } from '../../dto/clienteDTO'; // Ajuste o caminho conforme necessário
+import { CadastrarClienteController } from './cadastrar-cliente-controller';
+import { CadastrarClienteUseCase } from '../../use-cases/cadastrar-cliente-use-case';
+import { ClienteGateway } from '../gateways/cliente-gateway';
+import { ClienteDTO } from '../../dto/clienteDTO';
 
 describe('CadastrarClienteController', () => {
   let cadastrarClienteController: CadastrarClienteController;

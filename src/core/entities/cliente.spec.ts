@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { Cliente } from './cliente'; // Ajuste o caminho conforme necessário
+import { Cliente } from './cliente';
 
 describe('Cliente', () => {
   it('Deve lançar uma exceção se o nome for inválido', () => {

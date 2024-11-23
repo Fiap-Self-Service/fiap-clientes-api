@@ -4,6 +4,7 @@ import { Cliente } from '../../entities/cliente';
 import { ClienteDTO } from '../../dto/clienteDTO';
 import { ConsultarClientePorCPFController } from '../../adapters/controllers/consultar-cliente-controller';
 import { CadastrarClienteController } from '../../adapters/controllers/cadastrar-cliente-controller';
+import { ConsultarClientePorIDController } from '../../adapters/controllers/consultar-cliente-id-controller';
 
 @ApiTags('Clientes')
 @Controller('clientes')
@@ -11,6 +12,7 @@ export class ClienteAPIController {
   constructor(
     private readonly cadastrarClienteController: CadastrarClienteController,
     private readonly consultarClientePorCPFController: ConsultarClientePorCPFController,
+    private readonly consultarClientePorIDController: ConsultarClientePorIDController,
   ) {}
 
   @Post()
@@ -25,7 +27,7 @@ export class ClienteAPIController {
     return await this.cadastrarClienteController.execute(clienteDTO);
   }
 
-  @Get(':cpf')
+  @Get('/cpf/:cpf')
   @ApiOperation({
     summary: 'Buscar Cliente por CPF',
     description:
@@ -35,5 +37,17 @@ export class ClienteAPIController {
   @ApiResponse({ status: 400, description: 'Cliente não encontrado.' })
   async buscarClientePorCPF(@Param('cpf') cpf: string): Promise<Cliente> {
     return await this.consultarClientePorCPFController.execute(cpf);
+  }
+
+  @Get(':id')
+  @ApiOperation({
+    summary: 'Buscar Cliente por ID',
+    description:
+      'Verifica se o ID informado está cadastrado e retorna os dados do Cliente.',
+  })
+  @ApiResponse({ status: 200, description: 'Cliente encontrado.' })
+  @ApiResponse({ status: 400, description: 'Cliente não encontrado.' })
+  async buscarClientePorID(@Param('id') id: string): Promise<Cliente> {
+    return await this.consultarClientePorIDController.execute(id);
   }
 }

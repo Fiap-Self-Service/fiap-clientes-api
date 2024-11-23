@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ClienteGateway } from './cliente-gateway'; // Ajuste o caminho conforme necessário
-import { IClienteRepository } from '../../external/repository/cliente-repository.interface'; // Ajuste o caminho conforme necessário
-import { Cliente } from '../../entities/cliente'; // Ajuste o caminho conforme necessário
+import { ClienteGateway } from './cliente-gateway';
+import { IClienteRepository } from '../../external/repository/cliente-repository.interface';
+import { Cliente } from '../../entities/cliente';
 
 describe('ClienteGateway', () => {
   let clienteGateway: ClienteGateway;

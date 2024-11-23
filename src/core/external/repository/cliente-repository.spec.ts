@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ClienteRepository } from './cliente-repository'; // Ajuste o caminho conforme necessário
+import { ClienteRepository } from './cliente-repository';
 import { Repository } from 'typeorm';
-import { ClienteEntity } from './cliente.entity'; // Ajuste o caminho conforme necessário
+import { ClienteEntity } from './cliente.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('ClienteRepository', () => {
