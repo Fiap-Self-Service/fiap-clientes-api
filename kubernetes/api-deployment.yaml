@@ -4,13 +4,13 @@ metadata:
   name: fiap-clientes-api-deployment
   namespace: fiap-clientes-api
   labels:
-    app: fiap-clientes-api
+    app: fiap-clientes-api-deployment
 spec:
   template:
     metadata:
       name: fiap-clientes-api-deployment
       labels:
-        app: fiap-clientes-api
+        app: fiap-clientes-api-deployment
     spec:
       containers:
         - name: fiap-clientes-api-deployment-container
@@ -46,4 +46,4 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fiap-clientes-api
+      app: fiap-clientes-api-deployment
