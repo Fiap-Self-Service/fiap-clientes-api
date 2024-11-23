@@ -29,11 +29,22 @@ describe('Testes de Integração', () => {
       .expect(HttpStatus.CREATED);
   });
 
-  it('Deve buscar os dados do cliente', async () => {
+  it('Deve buscar os dados do cliente por CPF', async () => {
     await request(app.getHttpServer()).post('/clientes').send(CLIENTE1);
 
     return await request(app.getHttpServer())
-      .get('/clientes/' + CLIENTE1.cpf)
+      .get('/clientes/cpf/' + CLIENTE1.cpf)
+      .send()
+      .expect(HttpStatus.OK);
+  });
+
+  it('Deve buscar os dados do cliente por ID', async () => {
+    const response = await request(app.getHttpServer())
+      .post('/clientes')
+      .send(CLIENTE1);
+
+    return await request(app.getHttpServer())
+      .get('/clientes/' + response.body.id)
       .send()
       .expect(HttpStatus.OK);
   });
