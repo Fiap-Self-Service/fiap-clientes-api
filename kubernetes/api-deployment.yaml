@@ -10,7 +10,7 @@ spec:
     metadata:
       name: fiap-clientes-api-deployment
       labels:
-        app: fiap-clientes-api-deployment
+        app: fiap-clientes-api
     spec:
       containers:
         - name: fiap-clientes-api-deployment-container
@@ -46,4 +46,4 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fiap-clientes-api-deployment
+      app: fiap-clientes-api
