@@ -10,6 +10,7 @@ let app: INestApplication;
 let clienteDTO: ClienteDTO;
 let response: any;
 let cpfPesquisa: string;
+let idCadastrado: string;
 
 const CLIENTE1 = {
   nome: 'Cliente de Teste',
@@ -78,8 +79,18 @@ Given('que seja informado um CPF já cadastrado', async () => {
   cpfPesquisa = CLIENTE1.cpf;
 });
 
+Given('que seja informado um ID já cadastrado', async () => {
+  idCadastrado = (
+    await request(app.getHttpServer()).post('/clientes').send(CLIENTE1)
+  ).body.id;
+});
+
 Given('que seja informado um CPF não cadastrado', async () => {
   cpfPesquisa = CLIENTE1.cpf;
+});
+
+Given('que seja informado um ID não cadastrado', async () => {
+  idCadastrado = 'id-nao-cadastrado';
 });
 
 When('o cliente solicita o cadastro', async () => {
@@ -90,7 +101,13 @@ When('o cliente solicita o cadastro', async () => {
 
 When('realizado a busca do cliente por CPF', async () => {
   response = await request(app.getHttpServer())
-    .get('/clientes/' + cpfPesquisa)
+    .get('/clientes/cpf/' + cpfPesquisa)
+    .send();
+});
+
+When('realizado a busca do cliente por ID', async () => {
+  response = await request(app.getHttpServer())
+    .get('/clientes/' + idCadastrado)
     .send();
 });
 
